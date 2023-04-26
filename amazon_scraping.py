@@ -8,10 +8,10 @@ from dotenv import load_dotenv
 import os
 load_dotenv()
 
-URL = 'https://www.amazon.de/Puma-Unisex-Erwachsene-Sneaker-Schwarz-Black-Puma/dp/B077MLZ1KS/?_encoding=UTF8&pd_rd_w=9kY5p&content-id=amzn1.sym.0b0b934e-1f89-4d8b-9a61-672a3b20f8d0&pf_rd_p=0b0b934e-1f89-4d8b-9a61-672a3b20f8d0&pf_rd_r=J80QC5YZ30S0YZ3BB20V&pd_rd_wg=gH445&pd_rd_r=18906c67-c917-4443-acf0-1b1def1e0305&ref_=pd_gw_ci_mcx_mr_hp_atf_m&th=1&psc=1'
+URL = os.getenv('my_shoes')
 
 headers = {
-    'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36'}
+    'user-agent': os.getenv('user-agent')}
 
 page = requests.get(URL,headers = headers)
 soup = BeautifulSoup(page.content,'html.parser')
